@@ -1,0 +1,44 @@
+stages:
+  - build
+  - deploy
+
+Gulp in action:
+  stage: build
+  script:
+    - sudo rm -rf /home/gitlab-runner/projects/$project_name/lay/#src
+    - sudo cp -r '#src' /home/gitlab-runner/projects/$project_name/lay/
+    - cd /home/gitlab-runner/projects/$project_name/lay/
+    - gulp
+    - echo 'build successful'
+    - echo 'copying successful'
+  tags:
+    - dev-shell
+ 
+Deploy to sverchok CSS:
+  stage: deploy
+  script:
+    - cd /home/gitlab-runner/projects/$project_name/lay/
+    - sudo rm -rf /var/www/$project_name.sverch/css/
+    - sudo cp -r /home/gitlab-runner/projects/$project_name/lay/lay/css /var/www/$project_name.sverch
+  tags:
+    - dev-shell
+
+Deploy to sverchok JS:
+  stage: deploy
+  script:
+    - cd /home/gitlab-runner/projects/$project_name/lay/
+    - sudo rm -rf /var/www/$project_name.sverch/js/
+    - sudo cp -r /home/gitlab-runner/projects/$project_name/lay/lay/js /var/www/$project_name.sverch
+  tags:
+    - dev-shell
+
+Deploy to sverchok FILES:
+  stage: deploy
+  script:
+    - cd /home/gitlab-runner/projects/$project_name/lay/
+    - sudo rm -rf /var/www/$project_name.sverch/img/
+    - sudo cp -r /home/gitlab-runner/projects/$project_name/lay/lay/img /var/www/$project_name.sverch
+    - sudo rm -rf /var/www/$project_name.sverch/fonts/
+    - sudo cp -r /home/gitlab-runner/projects/$project_name/lay/lay/fonts /var/www/$project_name.sverch
+  tags:
+    - dev-shell

@@ -1,0 +1,18 @@
+;
+; Зона dev-проекта $project_name
+;
+
+$TTL 604800
+@     IN    SOA      $project_name.dev-sverch.     root.$project_name.dev-sverch.      (
+         45 ; Serial
+         604800 ; Refresh
+         86400 ; Retry
+         2419200 ; Expire
+         604800 ) ; Negative Cache TTL\n;
+@     IN    NS    $project_name.dev-sverch.
+@     IN    A     192.168.1.7
+
+lay   IN    A     192.168.1.7
+front IN    A     192.168.1.7
+back  IN    A     192.168.1.7
+content IN  A     192.168.1.7

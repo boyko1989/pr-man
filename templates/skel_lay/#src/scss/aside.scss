@@ -1,0 +1,49 @@
+.rightblk {
+   padding: 10px 0 0 20px;
+   
+}
+.page__block {
+   margin: 0px 0px 20px 0px;
+}
+
+.block {}
+
+
+.block__one .block__body {
+   background-color: rgb(228, 255, 254);
+}
+
+.block__two .block__body {
+   background-color: rgb(255, 228, 228);
+}
+
+.block__body {
+   padding: 20px;
+   border: 1px solid rgba(51, 51, 51, 0.151);
+}
+
+.block__title {
+   text-align: center;
+   color: rgb(87, 87, 87);
+   font-family: Arial;
+   font-weight: 500;
+   font-size: 30px;
+   line-height: 110%;
+}
+
+.block__text {
+   font-family: arial;
+   font-size: 12px;
+   line-height: 18px;
+}
+
+
+@media (max-width:1200px) {
+   .block__body {
+      padding: calc(20px + (30 - 20) * ((100vw - 320px) / (1200 - 320)));
+   }
+
+   .block__title {
+      font-size: calc(18px + (30 - 18) * ((100vw - 320px) / (1200 - 320)));
+   }
+}
